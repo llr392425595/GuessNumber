@@ -29,4 +29,11 @@ public class NumberReaderTest {
         setInputStream("123d");
         reader.read();
     }
+
+    @Test(expected = Exception.class)
+    public void shouldThrowExceptionForRepeatInput() throws Exception {
+        setInputStream("1233");
+        reader.read();
+    }
+
 }
