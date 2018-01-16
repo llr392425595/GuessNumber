@@ -1,9 +1,12 @@
 package com.tw.practice;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class GameTest {
 
     @Mock
@@ -34,7 +37,8 @@ public class GameTest {
         Game game = new Game(mockedGenerator, mockedPrinter, mockedReader);
         game.start();
         Mockito.verify(mockedPrinter, Mockito.times(1)).print("please input a 4 digit number:");
-        Mockito.verify(mockedPrinter, Mockito.times(1)).print("0A0B");
+        Mockito.verify(mockedPrinter, Mockito.times(6)).print("0A0B");
+
     }
 
     @Test
@@ -45,7 +49,7 @@ public class GameTest {
         Game game = new Game(mockedGenerator, mockedPrinter, mockedReader);
         game.start();
         Mockito.verify(mockedPrinter, Mockito.times(1)).print("please input a 4 digit number:");
-        Mockito.verify(mockedPrinter, Mockito.times(1)).print("0A4B");
+        Mockito.verify(mockedPrinter, Mockito.times(6)).print("0A4B");
     }
 
     @Test
@@ -56,6 +60,6 @@ public class GameTest {
         Game game = new Game(mockedGenerator, mockedPrinter, mockedReader);
         game.start();
         Mockito.verify(mockedPrinter, Mockito.times(1)).print("please input a 4 digit number:");
-        Mockito.verify(mockedPrinter, Mockito.times(1)).print("2A1B");
+        Mockito.verify(mockedPrinter, Mockito.times(6)).print("2A1B");
     }
 }
